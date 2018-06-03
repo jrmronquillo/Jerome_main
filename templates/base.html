@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
+
+<script>
+</script>
+
+    <title>{% block title %}{% endblock %} App</title>
+    {% endblock %}
+</head>
+<body>
+    <div class='bg'></div>
+    <div class='container-fluid'>
+        <div id="content" align='vertical-center'>{% block content %}{% endblock %}
+        </div>
+        <div id="footer" class="text-muted">
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+img {
+    -webkit-filter: none; /* Safari 6.0 - 9.0 */
+    filter: none;
+}
+
+#social_icons{
+    height: 45px;
+    width: 45px;
+    color: #ffffff;
+}
+
+.bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* The image used */
+    background-image: url("/static/desktop-1.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(3px); /* Safari 6.0 - 9.0 */
+    filter: blur(3px);
+}
+
+html, body{
+    height: 100%;
+}
+
+.container-fluid{
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+#content{
+    margin-top: 25%;
+}
+
+.cover{
+    margin-left: 50%;
+    margin-right: 10%;
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+h1{
+    color: #ffffff;
+}

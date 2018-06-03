@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "home page here"
+    return render_template('front_page.html')
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key1'
