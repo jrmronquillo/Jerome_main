@@ -9,6 +9,14 @@ app = Flask(__name__)
 def home():
     return render_template('front_page.html')
 
+@app.route('/catalogApp')
+def catalogApp():
+	return "PlaceHolder for Catalog App"
+
+@app.route('/projects')
+def projects():
+	return render_template('projects.html')
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key1'
     app.debug = True

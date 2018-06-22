@@ -19,6 +19,8 @@ img {
     /* Full height */
     height: 100%;
 
+    z-index: -9999;
+
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -32,10 +34,14 @@ html, body{
 }
 
 .container-fluid{
-    position: fixed;
+    /*position: fixed;*/
     left: 0;
     right: 0;
-    height: 100%;
+    /*height: 100%;*/
+}
+
+.projects-main{
+    /*position: relative;*/
 }
 
 #content{
@@ -52,3 +58,44 @@ html, body{
 h1{
     color: #ffffff;
 }
+
+.social_icons{
+    width: 20px;
+    fill: #902929;
+    stroke: #ffffff;
+}
+.simpleicons-instagram-icon{
+    width: 15px;
+    height: 15px;
+    fill: #902929;
+    stroke: #ffffff;
+}
+
+/*.simpleicons-linkedin-icon{
+    position: relative;
+    height: 10px;
+    width: 100%;
+    left: 0;
+    top: 0;
+}*/
+
+.svg-container{
+    /*border: 10px solid #b6bdc3; */
+    width: 100%;
+    height: auto;
+    /*background: #fff;*/
+    /*margin: 0 auto;*/
+}
+
+#project-button-1{
+    font-color: white;
+}
+
+.project {
+  text-decoration: none;
+  color: #008080;
+  display: inline-block;
+  border: 2px solid lightblue;
+  height: 200px;
+  width: 200px;
+  margin: 40px 100px;
