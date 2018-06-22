@@ -3,16 +3,24 @@
 
 <nav>
   <ul id='navbar'>
-
+  	<li></li>
     <li><a href="#main1">main</a></li>
   </ul>
 </nav>
 <div id="projects-container">
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<div id="modal-content">Test text for modal</div>
+	</div>
+
+	<button class="btn btn-primary" id="modal-button">Open Modal</button>
+
 	<div id="projects" class="work">
 	  <h2 class="work-header">Lorem ipsum lorem ipsum lorem ipsum...</h2>
-	  <a href="#" target="_blank" class="project project-tile">
+	  <a href="{{url_for('controller_app_example')}}" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 1</div>
+	    <div class="project-title">Controller App</div>
+	    <div class="project-description">Interface for selecting devices and sending commands to them</div>
 	  </a>
 	  <a href="#" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">

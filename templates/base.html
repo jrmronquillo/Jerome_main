@@ -7,13 +7,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
 
 <script>
   $('.svg-inject').svgInject();
 
+</script>
+
+<script>
+    function test(name){
+        alert('drop down change detected');
+    }
+
+    function toggleDisplay(){
+        var x = document.getElementsByClassName("slot-drawer");
+        x[0].style.display === 'none';
+        var i;
+        if (x[0].style.display === 'none'){
+            for(i=0; i<x.length; i++){
+                x[i].style.display = 'block';
+            } 
+        } else {
+            for(i=0; i<x.length; i++){
+                x[i].style.display = 'none';
+            }
+        }
+    }
+
+    function displayIntegerButtons(){
+        var x = document.getElementsByClassName("main-buttons");
+        var y = document.getElementsByClassName("integer-buttons");
+        var z = document.getElementsByClassName("alpha-buttons");
+        x[0].style.display = 'none';
+        y[0].style.display = 'block';
+        z[0].style.display = 'block';
+    }
+
+     function displayMainButtons(){
+        var x = document.getElementsByClassName("main-buttons");
+        var y = document.getElementsByClassName("integer-buttons");
+        var z = document.getElementsByClassName("alpha-buttons");
+        x[0].style.display = 'block';
+        y[0].style.display = 'none';
+        z[0].style.display = 'none';
+    }
+
+     function displayAlphaButtons(){
+        var x = document.getElementsByClassName("main-buttons");
+        var y = document.getElementsByClassName("integer-buttons");
+        var z = document.getElementsByClassName("alpha-buttons");
+        x[0].style.display = 'none';
+        y[0].style.display = 'block';
+        z[0].style.display = 'block';
+    }
+
+    function toggleMenu(x) {
+        x.classList.toggle("change");
+        var y = document.getElementsByClassName("navbar");
+        var i;
+        if (y[0].style.display === 'none' || y[0].style.display === ''){
+            y[0].style.display = 'block'; 
+        } else {
+            y[0].style.display = 'none';
+        }
+    }
+    // code for modal
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("modal-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        alert('button clicked!');
+        modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 </script>
 
     <title>{% block title %}{% endblock %} App</title>
@@ -22,8 +109,7 @@
 <body>
     <div class='bg'></div>
     <div class='container-fluid'>
-        <div id="content" align='vertical-center'>{% block content %}{% endblock %}
-        </div>
+        {% block content %}{% endblock %}
         <div id="footer" class="text-muted">
             {% block footer %}
             {% endblock %}
