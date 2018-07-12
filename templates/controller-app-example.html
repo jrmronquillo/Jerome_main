@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class = 'pane'>
-	<div class = 'flash'>
+    <div class = 'flash'>
               {% with messages = get_flashed_messages() %}
       {% if messages %}
 
@@ -12,8 +12,8 @@
         </ul>
         {% endif %}
     {% endwith %}
-    v.96
-	</div>
+
+    </div>
     <div class='row'>
         {% if quad == 'true' %}
             {% set allQuadButton = 'btn-primary' %}
@@ -61,15 +61,16 @@
     </div>
     <div class="controller-main-bg"></div>
     <div class="controller-main-content">
-		<div class='row'>
+
+        <div class='row'>
             <div class='col-sm-6 stb-selection'>
-    			<table class="table" id="stb-table">
+                <table class="table" id="stb-table">
                     <tr>
                         <td>
-        				    <a href="{{url_for('controller_app_example', button_set=button_set, quad='none', rack_id='0')}}" class="btn btn-secondary"><h4>A00</h4></a>
-        			    </td>
+                            <a href="#" class="btn btn-secondary"><h4>A00</h4></a>
+                        </td>
                         <td>
-                            <a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='1')}}" class="btn btn-secondary"><h4>A01</h4></a>
+                            <a href="#" class="btn btn-secondary"><h4>A01</h4></a>
                         </td>
                         <td>
                             <a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2')}}" class="btn btn-secondary"><h4>A02</h4></a>
@@ -116,7 +117,7 @@
                             <button onclick="toggleDisplay()" class="create-button">Slots</button>
                         </td>
                     </tr>
-    			
+                
                 </table>
             
                 <table class="table">
@@ -128,67 +129,67 @@
                     
                     <tr>
                         <td>
-                           <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">STB 1</a></button></button>
+                           <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '8' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">STB 1</a></button></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">STB 5</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '14' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">STB 5</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">STB 9</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '1' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">STB 9</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">STB 13</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">STB 2</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">STB 6</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">STB 10</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">STB 14</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '1' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">STB 13</a></button>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='9')}}">STB 3</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '15' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">STB 2</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">STB 7</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '16' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">STB 6</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">STB 11</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '2' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">STB 10</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">STB 15</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '3' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">STB 14</a></button>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">STB 4</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '9' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='9')}}">STB 3</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">STB 8</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '9' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">STB 7</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">STB 12</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '2' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">STB 11</a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">STB 16</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '4' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">STB 15</a></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '10' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">STB 4</a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '11' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">STB 8</a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '5' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">STB 12</a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '6' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">STB 16</a></button>
                         </td>
                     </tr>
                 </table>
 
                 <table class="table">
-                    <tr><button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26')}}">HS17</a></button></tr>
+                    <tr><button type="button" class="btn btn-secondary{% if rack_id == 26  and slot_id == '0' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26')}}">HS17</a></button></tr>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26', slot_id='1')}}">Client 1</a></button>
+                            <button type="button" class="btn btn-secondary{% if rack_id == 26 and slot_id == '1' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26', slot_id='1')}}">Client 1</a></button>
                         </td>
                         <td>
                             <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26', slot_id='2')}}">Client 2</a></button>
@@ -216,7 +217,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26', slot_id='16')}}">Dev Box</a></button>
+                        <button type="button" class="btn btn-secondary{% if rack_id == 26  and slot_id == '16' %} active{% endif %}"><a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='26', slot_id='16')}}">Dev Box</a></button>
                     </tr>
                 </table>
 
@@ -228,7 +229,7 @@
                     <a href= "{{url_for('controller_app_example', button_set='numbers', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{ numberColor }}">Numbers</a>
                     <div class="row">
 
-                        <h4>Channel Tune:</h4>
+                        <h4 id="chtune-title">Channel Tune:</h4>
                         <form action="#" method = 'post'>
                             <fieldset>
                                 <input type="radio" name="name" value="111"> 111
@@ -240,13 +241,14 @@
                                 <input type="radio" name="name" value="391"> 391
                                 <input type="radio" name="name" value="500"> 500
                                 <input type="radio" name="name" value="800"> 800
+                                <input type="radio" name="name" value="9650"> 9650
                                 <input type='submit' value='send' class="create-button">
                             </fieldset>
                         </form>
                     </div>
                     <div class="row">
                         <form action="#" method = 'post'>
-                            <input type ='text' size='20' name='name' placeholder="Channel Number" required>
+                            <input type ='text' size='20' name='name' id='chTextBox' pattern="[0-9]{1,4}" placeholder="Channel Number" required>
                             <input type='submit' value='send' class='create-button'>
                         </form>
                     </div>
@@ -736,7 +738,8 @@
                                 <fieldset>
                                     <input type="radio" name="keyword" value="widgettestmon"> widgettestmon
                                     <input type="radio" name="keyword" value="widgetsoff"> widgetsoff
-                                    <input type="radio" name="keyword" value="widgetcontroller_app_exampleon"> widgetcontroller_app_exampleonfle
+                                    <input type="radio" name="keyword" value="widgetcontroller_app_exampleon"> widgetcontroller_app_exampleon
+                                    <input type="radio" name="keyword" value="showswmodules"> showswmodules
                                     <input type='submit' value='submit'>
                                 </fieldset>
                         </div>  
@@ -750,7 +753,7 @@
         </div> <!-- this closes the 'row' div -->
     </div> <!-- this closes the 'controller-main-content' div -->
             
-			
+            
 
            
         
