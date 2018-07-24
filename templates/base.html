@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
 
 <script>
-  $('.svg-inject').svgInject();
+  //$('.svg-inject').svgInject();
 
 </script>
 
@@ -89,6 +89,13 @@
             {% endblock %}
         </div>
     </div>
+
+<!-- Load React. -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!-- Load React Component -->
+<script type="text/jsx" src="{{ url_for('static', filename='like_button.js') }}"></script>
 </body>
 <script>
         // Get the modal
