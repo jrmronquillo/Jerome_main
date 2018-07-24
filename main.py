@@ -17,6 +17,10 @@ def catalogApp():
 def projects():
 	return render_template('projects.html')
 
+@app.route('/reactPlayground')
+def reactPlayground():
+    return render_template('reactPlayground.html')
+
 # -------python for the controller app
 
 @app.route('/controller-app-example', methods=['GET', 'POST'])

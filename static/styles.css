@@ -3,6 +3,10 @@ img {
     filter: none;
 }
 
+button {
+  animation: bounce .2s 3 alternate;
+}
+
 #social_icons{
     height: 45px;
     width: 45px;
@@ -376,5 +380,17 @@ td{
     display: inline-block;
   }
 }
+
+@keyframes bounce {
+    from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+
+
 
 /* end of css code for controller app */

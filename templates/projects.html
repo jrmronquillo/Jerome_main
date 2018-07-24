@@ -3,57 +3,57 @@
 
 <nav>
   <ul id='navbar'>
-  	<li></li>
     <li><a href="#main1">main</a></li>
   </ul>
 </nav>
+ 
+
+        <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
+
 <div id="projects-container">
 
 	<div id="projects" class="work">
-	  <h2 class="work-header">Lorem ipsum lorem ipsum lorem ipsum...</h2>
+	  <h2 class="work-header text-danger">Projects Page</h2>
 	  <a href="{{url_for('controller_app_example')}}" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
 	    <div class="project-title">Controller App</div>
-	    <div class="project-description">Interface for selecting devices and sending commands to them</div>
+	   
 	  </a>
 	  <a href="#" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 2</div>
+	    <div class="project-title">Catalog App</div>
 	  </a>
 	  <a href="#" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 3</div>
+	    <div class="project-title">Modal Test </div>
 	  </a>
-	  <a href="#" target="_blank" class="project project-tile">
+	  <button class="btn btn-outline-primary btn-outline-* btn-lg" id="myBtn">Open Modal</button>
+
+	  <a href="{{url_for('reactPlayground')}}" target="_blank" class="project project-tile">
 	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 4</div>
-	  </a>
-	  <a href="#" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 5</div>
-	  </a>
-	  <a href="#" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Project 6</div>
+	    <div class="project-title">React Playground</div>
 	  </a>
 
 	  <a href="#" class="show-all" target="_blank">Show all</a>
-	</div>
-	<div id="contact" class="contact">
-	  <div class="header">
-	    <h1>Lorem ipsum</h1>
-	    <p>Lorem ipsum lorem lorem ipsum ipsum</p>
-	  </div>
-	  <a href="#" target="_blank" class="contact-details">Facebook</a>
-	  <a id='profile-link' href="#" target="_blank" class="contact-details">GitHub</a>
-	  <a href="h#" target="_blank" class="contact-details">Twitter</a>
-	  <a href="mailto:example@example.com" class="contact-details">Send a mail</a>
-	  <a href="tel:555-555-5555" class="contact-details">Call me</a>
 	</div>
 	<footer>Footer Section
 	  <p>&copy; Jerome Ronquillo</a></p>
 	</footer>
 </div>
 
+<!-- Load React. -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- Load React Component -->
+<script src="like_button.js"></script>
 
 {% endblock %}
