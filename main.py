@@ -4,11 +4,7 @@ from flask import session as login_session
 
 app = Flask(__name__)
 
-# Test comment for git
-@app.route('/testingGit')
-def testingGit:
-      return "testingGit"
- 
+# Test comment for git 
 
 @app.route('/')
 def home():
