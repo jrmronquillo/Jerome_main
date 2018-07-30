@@ -4,7 +4,7 @@ from flask import session as login_session
 
 app = Flask(__name__)
 
-
+#test from local
 @app.route('/')
 def home():
     return render_template('front_page.html')
