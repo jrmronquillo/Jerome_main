@@ -4,7 +4,12 @@ from flask import session as login_session
 
 app = Flask(__name__)
 
-#test from local
+# Test comment for git
+@app.route('/testingGit')
+def testingGit:
+      return "testingGit"
+ 
+
 @app.route('/')
 def home():
     return render_template('front_page.html')
