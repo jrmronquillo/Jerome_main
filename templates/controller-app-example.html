@@ -55,14 +55,11 @@
             {% set numberz = 'block' %}
             {% set numberColor = 'btn-primary' %}
          {% endif %}
-         modal mode:
-         {{modalMode}}
          {% if modalMode == 'leftside' %}
             {% set modal_display = 'block' %}
          {% elif modalMode == 'rightside' %}
             {% set modal_displayb = 'block' %}
          {% endif %}
-        }
     </div>
     <div class="error">
         <h1 style="color:red;">{{error}}</h1>
@@ -81,10 +78,14 @@
         </div>
 
         <div id="myModal2" class="modal" style="display: {{modal_displayb}}">
-    
+
             <div class="modal-content">
                 <span class="close">&times;</span>
-               <p>Lorem ipsum</p>
+               <p>The buttons on the right side trigger a POST request and pass in the value of the button pressed. In the post request, that value is passed to python function that directly instructs the external device to relay that command.
+               </p>
+               <hr>
+               <p>
+               In this approach, button highlights made dynamic through jinja variables. When I first began developing this, I wasn't proficient in javascript. It was only later when I gain javascript skills that I introduced javascript display this comment modal and dynamically changing the key commands on demand.
             </div>
         </div>
 
@@ -143,16 +144,16 @@
                             <button onclick="toggleDisplay()" class="create-button">Slots</button>
                         </td>
                     </tr>
-                
+
                 </table>
-            
+
                 <table class="table">
                     <tr>
                         <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='true')}}" class='btn btn-secondary {{allQuadButton}} modalBtns'>All Quad STB's</a></button>
                         <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1,2,8,9')}}" class="btn {{allServersButton}} modalBtns">All Servers</a></button>
                         <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1,2,3,4,5,6,9,10,11,14,15,16')}}" class="btn {{allClientsButton}} modalBtns">All Clients</a></button>
                     </tr>
-                    
+
                     <tr>
                         <td>
                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '8' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">STB 1</a></button></button>
@@ -225,7 +226,7 @@
                         </td>
                         <td>
                             <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='5')}}">Client 5</a></button>
-                        </td>   
+                        </td>
 
                     </tr>
                     <tr>
@@ -316,7 +317,7 @@
                             <td>
                             </td>
                         </tr>
-                        <tr>    
+                        <tr>
                             <td>
                                 <form action="#" method = 'post' class="create-button">
                                    <input type ='hidden' size='20' name='name' value='leftArrow'>
@@ -351,7 +352,7 @@
                                         <input type='submit' value='dash' class='create-button'>
                                 </form>
                             </td>
-                        </tr>    
+                        </tr>
                     </table>
 
                     <table class="table">
@@ -368,7 +369,7 @@
                                     <input type='submit' value='yellow' class='create-button'>
                                 </form>
                             </td>
-                         
+
                             <td>
                                 <form action="#" method = 'post' class="create-button">
                                     <input type ='hidden' size='20' name='name' value='blue'>
@@ -415,7 +416,7 @@
                                     <input type='submit' value='stop' class='create-button'>
                                 </form>
                             </td>
-                           
+
                             <td>
                                 <form action="#" method = 'post' class="create-button">
                                     <input type ='hidden' size='20' name='name' value='chanUp'>
@@ -439,9 +440,9 @@
                                 </form>
                             </td>
                         </tr>
-                       
+
                         <tr>
-                           
+
                         </tr>
                     </table>
 
@@ -620,15 +621,15 @@
                                         <input type = 'hidden' name='name2' value='e'>
                                         <input type='submit' value='e' class='create-button'>
                                     </form>
-                                </div> 
+                                </div>
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='f'>
                                         <input type='submit' value='f' class='create-button'>
                                     </form>
-                                </div>              
+                                </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
@@ -659,15 +660,15 @@
                                         <input type = 'hidden' name='name2' value='k'>
                                         <input type='submit' value='k' class='create-button'>
                                     </form>
-                                </div> 
+                                </div>
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='l'>
                                         <input type='submit' value='l' class='create-button'>
                                     </form>
-                                </div>              
+                                </div>
                             </div>
-                         
+
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
@@ -698,15 +699,15 @@
                                         <input type = 'hidden' name='name2' value='q'>
                                         <input type='submit' value='q' class='create-button'>
                                     </form>
-                                </div> 
+                                </div>
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='r'>
                                         <input type='submit' value='r' class='create-button'>
                                     </form>
-                                </div>              
+                                </div>
                             </div>
-                        
+
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
@@ -737,15 +738,15 @@
                                         <input type = 'hidden' name='name2' value='w'>
                                         <input type='submit' value='w' class='create-button'>
                                     </form>
-                                </div> 
+                                </div>
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='x'>
                                         <input type='submit' value='x' class='create-button'>
                                     </form>
-                                </div>              
+                                </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-sm-2">
                                     <form action="#" method = 'post' class="create-button">
@@ -768,8 +769,8 @@
                                     <input type="radio" name="keyword" value="showswmodules"> showswmodules
                                     <input type='submit' value='submit'>
                                 </fieldset>
-                        </div>  
-                  <!-- End of Alphabet Table --> 
+                        </div>
+                  <!-- End of Alphabet Table -->
 
 
 
@@ -778,11 +779,11 @@
             </div>
         </div> <!-- this closes the 'row' div -->
     </div> <!-- this closes the 'controller-main-content' div -->
-            
-            
 
-           
-        
+
+
+
+
 
 
 
