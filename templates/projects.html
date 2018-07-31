@@ -1,42 +1,59 @@
 {% extends 'base.html' %}
 {% block content %}
+<ul>
+	<li><a href="/">&lt;&lt;back</a></li>
+	<li><a href="#controllerApp">Controller App</a></li>
+	<li><a href="#catalogApp">Catalog App</a></li>
+	<li><a href="#reactPlayground">React Playground</a></li>
+	<li><a href="#neighborhoodMap">Neighborhood Map</a></li>
+	<li><a href="#multiuserBlog">Multi User Blog</a></li>
+</ul>
 
-<nav>
-  <ul id='navbar'>
-    <li><a href="#main1">main</a></li>
-  </ul>
-</nav>
  
 
 <div id="projects-container">
+	  
+	  <section class="img-container" id ="controllerApp">
+	  	<div class="row">
+	  		<a href="{{url_for('controller_app_example')}}"><img class="project-pic img-fluid" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  		<div class="top-left blue-text">Controller App</div>
+	  	</div>
+	  </section>
 
-	<div id="projects" class="work">
-	  <h2 class="work-header text-danger">Projects Page</h2>
-	  <a href="{{url_for('controller_app_example')}}" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Controller App</div>
-	   
-	  </a>
-	  <a href="#" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Catalog App</div>
-	  </a>
-	  <a href="#" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">Modal Test </div>
-	  </a>
+	  <section class="img-container">
+	  	<div class="row" id="catalogApp">
+	  		<a href="{{url_for('controller_app_example')}}"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  	</div>
+	  	<div class="top-left blue-text">Catalog App</div>
+	  </section>
 
-	  <a href="{{url_for('reactPlayground')}}" target="_blank" class="project project-tile">
-	    <img class="project-pic" src="https://picsum.photos/200/200" alt="project">
-	    <div class="project-title">React Playground</div>
-	  </a>
+	  <section class="img-container">
+	  	<div class="row" id="reactPlayground">
+	  		<a href="#"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  	</div>
+	  	<div class="top-left blue-text">React Playground</div>
+	  </section>
+
+	  <section class="img-container">
+	  	<div class="row" id="neighborhoodMap">
+	  		<a href="#"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  	</div>
+	  	<div class="top-left blue-text">Neighborhood Map</div>
+	  </section>
+
+	  <section class="img-container">
+	  	<div class="row" id="mutliuserBlog">
+	  		<a href="#"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  	</div>
+	  	<div class="top-left blue-text">Multi-User Blog</div>
+	  </section>
 
 	  <a href="#" class="show-all" target="_blank">Show all</a>
-	</div>
+</div>
 	<footer>Footer Section
 	  <p>&copy; Jerome Ronquillo</a></p>
 	</footer>
-</div>
+
 
 <!-- Load React. -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>

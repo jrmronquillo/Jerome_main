@@ -1,3 +1,74 @@
+body {margin:0;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+footer{
+  height: 800px;
+}
+.active {
+    background-color: #4CAF50;
+}
+
+#projects-container{
+  margin-top: 50px;
+  left: 0px;
+}
+
+.img-container{
+  position: relative;
+  width: 100%;
+}
+
+/* Bottom left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 50px;
+
+}
+
+.blue-text{
+  color: blue;
+}
+
+:target {
+  display: block;
+  position: relative;
+  top: 100px; 
+  visibility: hidden;
+}
+
+.anchorOffset{
+  top:52px;
+}
+
 img {
     -webkit-filter: none; /* Safari 6.0 - 9.0 */
     filter: none;
@@ -33,6 +104,9 @@ button {
     filter: blur(3px);
 }
 
+.text-tester{
+  height: 300px;
+}
 .controller-main-content{
     background-image: url("/static/desktop-1.jpg");
     position: fixed;
@@ -74,6 +148,7 @@ button {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
 
 /* Modal Content */
 .modal-content {
@@ -370,9 +445,6 @@ td{
 
 @media (max-width: 771px) {
   .stb-selection{
-    display: none;
-  }
-  .navbar{
     display: none;
   }
 
