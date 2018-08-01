@@ -9,6 +9,11 @@ img {
     color: #ffffff;
 }
 
+.project-pic{
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+
 .text-color{
   color: black;
 }
@@ -362,3 +367,4 @@ td{
 }
 
 /* end of css code for controller app */
+
