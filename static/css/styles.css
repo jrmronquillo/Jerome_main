@@ -1,6 +1,12 @@
+a{
+  width: 100%;
+}
+
 img {
-    -webkit-filter: none; /* Safari 6.0 - 9.0 */
-    filter: none;
+  width: 100%;
+  height: auto;
+  -webkit-filter: blur(5px) grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: blur(5px) grayscale(100%);
 }
 
 #social_icons{
@@ -9,9 +15,11 @@ img {
     color: #ffffff;
 }
 
-.project-pic{
-  -webkit-filter: blur(3px);
-  filter: blur(3px);
+.projectPic{
+  width: 100%;
+  height: auto;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .text-color{
@@ -365,6 +373,484 @@ td{
     display: inline-block;
   }
 }
+
+/* end of css code for controller app */
+
+body {margin:0;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+    text-decoration: none;
+}
+
+footer{
+  height: 800px;
+}
+.active {
+    background-color: #4CAF50;
+}
+
+#projects-container{
+  margin-top: 50px;
+  left: 0px;
+}
+
+.img-container{
+  position: relative;
+  width: 100%;
+}
+
+/* Bottom left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 100px;
+
+}
+
+.blue-text{
+  color: blue;
+}
+
+.white-text{
+  color: white;
+}
+/*:target {
+  display: block;
+  position: relative;
+  top: 100px; 
+  visibility: hidden;
+}*/
+
+#controllerAppAnchor, #catalogAppAnchor, #reactPlaygroundAnchor, #neighborhoodMapAnchor, #multiuserBlogAnchor{
+  width: 100%;
+  height: 50px;
+}
+
+/*.anchor{
+  border-style: solid;
+  display: inline-block;
+  position: relative;
+  top: -50px;
+}*/
+
+
+button {
+  animation: bounce .2s 3 alternate;
+}
+
+#social_icons{
+    height: 45px;
+    width: 45px;
+    color: #ffffff;
+}
+
+.bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    /* The image used */
+    background-image: url("/static/desktop-1.jpg");
+
+    /* Full height */
+    height: 100%;
+
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(3px); /* Safari 6.0 - 9.0 */
+    filter: blur(3px);
+}
+
+.text-tester{
+  height: 300px;
+}
+.controller-main-content{
+    background-image: url("/static/desktop-1.jpg");
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* The Modal (background) */
+.frontModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: black;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+html, body{
+    height: 100%;
+}
+
+.container-fluid{
+    /*position: fixed;*/
+    left: 0;
+    right: 0;
+    /*height: 100%;*/
+}
+
+.projects-main{
+    /*position: relative;*/
+}
+
+.project-title{
+    font-size: 25px;
+}
+
+#content{
+    margin-top: 25%;
+}
+
+.cover{
+    margin-left: 50%;
+    margin-right: 10%;
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+h1{
+    color: #ffffff;
+}
+
+.social_icons{
+    width: 20px;
+    fill: #902929;
+    stroke: #ffffff;
+}
+.simpleicons-instagram-icon{
+    width: 15px;
+    height: 15px;
+    fill: #902929;
+    stroke: #ffffff;
+}
+
+/*.simpleicons-linkedin-icon{
+    position: relative;
+    height: 10px;
+    width: 100%;
+    left: 0;
+    top: 0;
+}*/
+
+.svg-container{
+    /*border: 10px solid #b6bdc3; */
+    width: 100%;
+    height: auto;
+    /*background: #fff;*/
+    /*margin: 0 auto;*/
+}
+
+#project-button-1{
+    font-color: white;
+}
+
+.project {
+  text-decoration: none;
+  color: #008080;
+  display: inline-block;
+  border: 2px solid lightblue;
+  height: 200px;
+  width: 200px;
+  margin: 40px 100px;
+}
+
+/* css for controller app below */
+.create-button {
+   border: 1px solid #268fcc;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   padding: 0px 0px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #FFFFFF;
+   font-size: 24px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+
+.create-button-red {
+   border: 1px solid #268fcc;
+   background: red;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   padding: 0px 0px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #FFFFFF;
+   font-size: 24px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+
+.create-button:hover {
+   border: 1px solid #0a3c59;
+   text-shadow: #43a4e0 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+   transform: scale(1.1);
+   }
+.create-button:active {
+   text-shadow: #1e4158 0 1px 0;
+   border: 1px solid #0a3c59;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+   color: #fff;
+   }
+
+.create-button-red {
+   border: 1px solid #0a3c59;
+   text-shadow: #43a4e0 0 1px 0;
+   background: #E75636;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #E75636);
+   background: -moz-linear-gradient(top, #65a9d7, #E75636);
+   background: -ms-linear-gradient(top, #65a9d7, #E75636);
+   background: -o-linear-gradient(top, #65a9d7, #E75636);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #E75636 100%);
+   color: #fff;
+   }
+
+
+.login-button, .logout-button, .delete-button, .edit-button {
+    font-weight: bold;
+    background-color: white;
+    color: #809C95;
+    border-radius: 20%;
+    border-color: white;
+    width: 100%;
+
+}
+
+strong{
+    color: red;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.slot-drawer{
+  display: none;
+}
+
+td{
+  text-align: center;
+}
+
+.containz{
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-image: url('screensaver.jpg');
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-position: right bottom, left top;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.controller-main-bg{
+  position: fixed;
+  display: block;
+  height: 100%;
+  background-image: url('destiny_2.jpg');
+  background-color: #cccccc;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  left: 0;
+  right:0;
+  z-index: -1;
+}
+
+.controller-main-content{
+  position: fixed;
+  width: 100%;
+  color: white;
+  z-index: 2;
+}
+
+#button1{
+  color:white;
+}
+.stb-selection{
+
+}
+.content{
+  margin-top: 50%;
+  text-align: center;
+}
+
+.hamburger-container {
+    display: none;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+@media (max-width: 771px) {
+  .stb-selection{
+    display: none;
+  }
+
+  .hamburger-container{
+    display: inline-block;
+  }
+}
+
+@keyframes bounce {
+    from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+
+
 
 /* end of css code for controller app */
 

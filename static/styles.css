@@ -60,6 +60,10 @@ footer{
   color: blue;
 }
 
+.white-text{
+  color: white;
+}
+
 /*:target {
   display: block;
   position: relative;
