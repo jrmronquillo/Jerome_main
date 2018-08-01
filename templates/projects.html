@@ -3,15 +3,15 @@
 <ul>
 	<li><a href="/">&lt;&lt;back</a></li>
 	<li><a href="#controllerAppAnchor">Controller App</a></li>
-	<li><a href="#catalogAppAnchor">Catalog App</a></li>
-	<li><a href="#reactPlaygroundAnchor">React Playground</a></li>
 	<li><a href="#neighborhoodMapAnchor">Neighborhood Map</a></li>
+	<li><a href="#reactPlaygroundAnchor">React Playground</a></li>
 	<li><a href="#multiuserBlogAnchor">Multi User Blog</a></li>
+	<li><a href="#catalogAppAnchor">Catalog App</a></li>
 </ul>
 
  
 
-<div id="projects-container">
+<div id="projects-container" onload="location.href">
 	  
 	  <div id="controllerAppAnchor" class="anchor"></div>
 	  <section class="img-container">
@@ -20,6 +20,14 @@
 	  		<a href="{{url_for('controller_app_example')}}"><img class="project-pic img-fluid" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
 	  		<div class="top-left blue-text">Controller App</div>
 	  	</div>
+	  </section>
+
+	   <div id="neighborhoodMapAnchor" class="anchor"></div>
+	  <section class="img-container">
+	  	<div class="row" id="neighborhoodMap">
+	  		<a href="#"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
+	  	</div>
+	  	<div class="top-left blue-text">Neighborhood Map</div>
 	  </section>
 
 	  <div id="catalogAppAnchor" class="anchor"></div>
@@ -39,13 +47,7 @@
 	  	<div class="top-left blue-text">React Playground</div>
 	  </section>
 
-	  <div id="neighborhoodMapAnchor" class="anchor"></div>
-	  <section class="img-container">
-	  	<div class="row" id="neighborhoodMap">
-	  		<a href="#"><img class="project-pic img-responsive" src="https://placeimg.com/1200/480/arch/grayscale" alt="project"></a>
-	  	</div>
-	  	<div class="top-left blue-text">Neighborhood Map</div>
-	  </section>
+	 
 
 	  <div id="multiuserBlogAnchor" class="anchor"></div>
 	  <section class="img-container">

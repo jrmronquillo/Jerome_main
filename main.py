@@ -10,13 +10,32 @@ app = Flask(__name__)
 def home():
     return render_template('front_page.html')
 
-@app.route('/catalogApp')
-def catalogApp():
-	return "PlaceHolder for Catalog App"
 
 @app.route('/projects')
 def projects():
 	return render_template('projects.html')
+
+
+#------neighborhood map code start
+
+@app.route('/neighborhoodMap')
+def neighborhoodMap():
+    return render_template('neighborhood-map.html')
+
+#------neighborhood map code end
+
+
+
+
+#--------------section for catalogApp
+
+@app.route('/catalogApp')
+def catalogApp():
+    return "PlaceHolder for Catalog App"
+
+#----end of catalogApp code
+
+
 
 @app.route('/reactPlayground')
 def reactPlayground():
