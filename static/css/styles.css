@@ -26,6 +26,18 @@ img {
   color: black;
 }
 
+.text-area-bg{
+  background-color: rgba(66,139,202, 1);
+  border-style: dashed;
+  border-radius: 50px;
+}
+
+.font-proxima{
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
 .bg {
     position: fixed;
     left: 0;
@@ -444,7 +456,7 @@ footer{
 /*:target {
   display: block;
   position: relative;
-  top: 100px; 
+  top: 100px;
   visibility: hidden;
 }*/
 
@@ -513,22 +525,7 @@ button {
     z-index: 9999; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
+    top: 50px;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -545,6 +542,15 @@ button {
     border: 1px solid #888;
     width: 80%;
     color: black;
+}
+
+.modal-construction{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  color: black;
 }
 
 /* The Close Button */
