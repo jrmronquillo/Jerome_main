@@ -843,6 +843,10 @@ td{
     transform: rotate(45deg) translate(-8px, -8px);
 }
 
+.mobile-back{
+    display:none;
+}
+
 
 @media (max-width: 771px) {
   .stb-selection{
@@ -867,12 +871,53 @@ td{
     font-style: normal;
     font-weight: 300;
     font-size: 1em;
-}
   }
+
   .mobile-center-button{
     display: flex;
     justify-content: center;
   }
+
+  ul {
+    display: none;
+  }
+
+  .mobile-back{
+    margin: 0;
+    padding: 14px 16px;
+    color: rgba(66,139,202, 1);
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: block;
+  }
+
+  .mobile-down-arrow{
+    font-size: 35px;
+    position: fixed;
+    margin: 0;
+    padding: 20px;
+    color: rgba(66,139,202, 1);
+    bottom: 10px;
+    left: 40%;
+    display: block;
+    z-index: 9999;
+    animation: downPoint 1s  infinite;
+}
+  
+
+  
+
+}
+
+@keyframes downPoint{
+    0%   {bottom: 40px;}
+    80%  {bottom: 10px;}
+
 }
 
 @keyframes bounce {
