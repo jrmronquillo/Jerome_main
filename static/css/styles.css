@@ -844,6 +844,20 @@ td{
   .hamburger-container{
     display: inline-block;
   }
+
+  .cover{
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+  }
+  .svg-container{
+    display:none;
+  }
+  .mobile-center-button{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @keyframes bounce {
