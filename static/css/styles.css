@@ -26,7 +26,15 @@ img {
   color: black;
 }
 
+.gray-bg{
+  padding: 20px;
+  background-color: rgba(169,169,169, 1);
+  border-style: dashed;
+  border-radius: 50px;
+}
+
 .text-area-bg{
+  padding: 20px;
   background-color: rgba(66,139,202, 1);
   border-style: dashed;
   border-radius: 50px;
@@ -853,6 +861,13 @@ td{
   }
   .svg-container{
     display:none;
+  }
+  .font-proxima{
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1em;
+}
   }
   .mobile-center-button{
     display: flex;
