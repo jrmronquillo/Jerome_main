@@ -162,7 +162,7 @@ h1{
     position: relative;
     height: 10px;
     width: 100%;
-    left: 0;
+    left: 0; 
     top: 0;
 }*/
 
@@ -287,6 +287,14 @@ h1{
 
 }
 
+.viewbox{
+  width: 100%;
+  height: auto;
+  border: solid !important;
+  color: black;
+
+}
+
 strong{
     color: red;
 }
@@ -301,13 +309,13 @@ strong{
   padding-left: 0;
 }
 
-.slot-drawer{
-  display: none;
+.selected-green{
+  background-color: green;
 }
+/*.slot-drawer{
+  display: block;
+}*/
 
-td{
-  text-align: center;
-}
 
 .containz{
   position: absolute;
@@ -482,14 +490,20 @@ footer{
 
 
 button {
-  animation: bounce .2s 3 alternate;
+  animation: bounce .5s 3 alternate;
 }
 
+.btn-override{
+  font-size: 0.5rem;
+  line-height: .5;
+  height: 10px;
+}
 #social_icons{
     height: 45px;
     width: 45px;
     color: #ffffff;
 }
+
 
 .bg {
     position: fixed;
@@ -764,12 +778,9 @@ strong{
   padding-left: 0;
 }
 
-.slot-drawer{
-  display: none;
-}
-
 td{
   text-align: center;
+  padding: 0px;
 }
 
 .containz{
@@ -845,6 +856,12 @@ td{
 
 .mobile-back{
     display:none;
+}
+
+table, tr, th, td{
+  border: dashed;
+  border-collapse: collapse;
+  padding: 0px;
 }
 
 

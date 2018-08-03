@@ -73,7 +73,7 @@
                 <span class="close">&times;</span>
                 <p>This section of buttons are a representation of available devices that a user can control. Clicking a button here will give a user control of that particular device. Under the hood, the button click redirects to a new url that contains unique values for identifying the desired device. Those values are then parsed by a python function on the server side.</p>
                 <hr>
-                <p>These values are used later when a POST request is made to the current URL and executes the communication to an external device. The buttons on the right side are what execute a POST request in addition to passing in a value for what specific device command to send. (Click buttons on the right side for further explanation)</p>
+                <p>These values are used later when a POST request is made to the current URL and executes the communication to an external device. The buttons on the right side are what execute a POST request in addition to passing in a value for what specific device CONTROL to send. (Click buttons on the right side for further explanation)</p>
             </div>
         </div>
 
@@ -81,197 +81,265 @@
 
             <div class="modal-content">
                 <span class="close">&times;</span>
-               <p>The buttons on the right side trigger a POST request and pass in the value of the button pressed. In the post request, that value is passed to python function that directly instructs the external device to relay that command.
+               <p>The buttons on the right side trigger a POST request and pass in the value of the button pressed. In the post request, that value is passed to python function that directly instructs the external device to relay that CONTROL.
                </p>
                <hr>
                <p>
-               In this approach, button highlights made dynamic through jinja variables. When I first began developing this, I wasn't proficient in javascript. It was only later when I gain javascript skills that I introduced javascript display this comment modal and dynamically changing the key commands on demand.
+               In this approach, button highlights made dynamic through jinja variables. When I first began developing this, I wasn't proficient in javascript. It was only later when I gain javascript skills that I introduced javascript display this comment modal and dynamically changing the key CONTROLs on demand.
             </div>
         </div>
 
         <div class='row'>
             <div class='col-sm-6 stb-selection'>
+                
+
+                <table class="table">
+                    
+                    <!-- row 1 -->
+                    <tr>
+                        <td>
+                            <div class="viewbox {% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %}">View 1 | Rack 3, Slot 8</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}">View 5 | Rack 2, Slot 14</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2 and slot_id == '14' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %}">View 9 | Rack 3, Slot 1</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %}">View 13 | Rack 2, Slot 1</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                    </tr>
+
+                    <!-- row 2 -->
+                    <tr>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %}">View 2 | Rack 2, Slot 15</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %}">View 6 | Rack 2, Slot 16</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '2' %} selected-green{% endif %}">View 10 | Rack 2, Slot 2</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %}">View 14 | Rack 2, Slot 3</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                    </tr>
+
+                    <!-- row 3 -->
+                    <tr>
+                        <td>
+                            <div class="viewbox {% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %}">View 3 | Rack 3, Slot 5</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %}"> View 7 | Rack 2, Slot 9</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 3  and slot_id == '2' %} selected-green{% endif %}">View 11 | Rack 3, Slot 2</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %}">View 15 | Rack 2, Slot 4</div>
+                           <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                    </tr>
+
+                    <!-- row 4 -->
+                    <tr>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %}">View 4 | Rack 2, Slot 10</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %}">View 8 | Rack 2 Slot 11</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %}">View 12 | Rack 2, Slot 5</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                        <td>
+                            <div class="viewbox {% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %}">View 16 | Rack 2, Slot 6</div>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                        </td>
+                    </tr>
+                    <tr>
+                       
+                        
+                       
+                    </tr>
+                </table>
+
+
+
                 <table class="table" id="stb-table">
                     <tr>
-                        <td>
-                            <a href="#" class ="btn btn-seconday modalBtns"><h4>A00</h4></a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-secondary modalBtns"><h4>A01</h4></a>
-                        </td>
-                        <td>
-                            <a href="{{url_for('controller_app_example', modalMode='leftside',button_set=button_set, quad='noQuad', rack_id='2')}}" class="btn btn-secondary modalBtns"><h4>A02</h4></a>
-                            <div class="slot-drawer">
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}"><p>slot 1</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}"><p>slot 2</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}"><p>slot 3</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}"><p>slot 4</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}"><p>slot 5</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}"><p>slot 6</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='7')}}"><p>slot 7</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='8')}}"><p>slot 8</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}"><p>slot 9</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}"><p>slot 10</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}"><p>slot 11</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='12')}}"><p>slot 12</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 13</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}"><p>slot 14</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}"><p>slot 15</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}"><p>slot 16</p></a></button>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3')}}" class="btn btn-secondary modalBtns"><h4>A03</h4></a>
-                            <div class="slot-drawer">
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}"><p>slot 1</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='3')}}"><p>slot 3</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='4')}}"><p>slot 4</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}"><p>slot 5</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='6')}}"><p>slot 6</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='7')}}"><p>slot 7</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}"><p>slot 8</p></a></button>
-                                <button type="button" class="btn btn-secondary"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='9')}}"><p>slot 9</p></a></button>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='21')}}" class="btn btn-secondary modalBtns"><h4>B12</h4></a>
-                        </td>
-                        <td>
-                            <a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26')}}" class="btn btn-secondary modalBtns"><h4>WS 1</h4></a>
-                        </td>
-                        <td>
-                            <button onclick="toggleDisplay()" class="create-button">Slots</button>
+                        <th>
+                            <a href="#" class ="btn btn-seconday modalBtns"><h4>A00/A01</h4></a>
+                        </th>
+                        <th>
+                            <a href="{{url_for('controller_app_example', modalMode='leftside',button_set=button_set, quad='noQuad', rack_id='2')}}" class="btn btn-default modalBtns"><h4>A02</h4></a>
+                        </th>
+                        <th>
+                             <a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3')}}" class="btn btn-default modalBtns"><h4>A03</h4></a>
+                        </th>
+                         <td>
+                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='true')}}" class='btn btn-default {{allQuadButton}} modalBtns'>All Quad STB's</a></button>
                         </td>
                     </tr>
+                    <!-- row 1 -->
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 1</p></a></button>
+                        </td>
+                         <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}"><p>slot 1</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}"><p>slot 3</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}"><p>slot 1</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1,2,8,9')}}" class="btn {{allServersButton}} modalBtns">All Servers</a></button>
+                        </td>
+                    
+                    </tr>
+                    <!-- row 2 -->
+
+                    <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}"><p>slot 4</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}"><p>slot 5</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}"><p>slot 6</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                        </td>
+                         <td>
+                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1,2,3,4,5,6,9,10,11,14,15,16')}}" class="btn {{allClientsButton}} modalBtns">All Clients</a></button>
+                        </td>
+                    </tr>
+                    <!-- row 3 -->
+                     <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default {% if rack_id == 0  and slot_id == '3' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='3')}}"><p>slot 3</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '7' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='7')}}"><p>slot 7</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                        </td>
+                    </tr>
+                    <!-- row 5 -->
+                     <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='8')}}"><p>slot 8</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                        </td>
+                    </tr>
+
+                    <!-- row 5 -->
+                     <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}"><p>slot 9</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}"><p>slot 10</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}"><p>slot 11</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}"><p>slot 5</p></a></button>
+                        </td>
+                    </tr>
+                    <!-- row 6 -->
+                     <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 12</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 6</p></a></button>
+                        </td>
+                    </tr>
+
+                    <!-- row 7 -->  
+                    <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 13</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='7')}}"><p>slot 7</p></a></button>
+                        </td>
+                    </tr>
+
+                    <!-- row 8 -->
+                    <tr>
+                        <td>    
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                        </td>
+                        <td nowrap> 
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}"><p>slot 14</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}"><p>slot 15</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}"><p>slot 16</p></a></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}"><p>slot 8</p></a></button>
+                        </td>
+                    </tr>
+
+
 
                 </table>
 
-                <table class="table">
-                    <tr>
-                        <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='true')}}" class='btn btn-secondary {{allQuadButton}} modalBtns'>All Quad STB's</a></button>
-                        <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1,2,8,9')}}" class="btn {{allServersButton}} modalBtns">All Servers</a></button>
-                        <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1,2,3,4,5,6,9,10,11,14,15,16')}}" class="btn {{allClientsButton}} modalBtns">All Clients</a></button>
-                    </tr>
-
-                    <tr>
-                        <td>
-                           <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '8' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">STB 1</a></button></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '14' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">STB 5</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '1' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">STB 9</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '1' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">STB 13</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '15' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">STB 2</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '16' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">STB 6</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '2' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">STB 10</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '3' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">STB 14</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '9' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='9')}}">STB 3</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '9' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">STB 7</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 3  and slot_id == '2' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">STB 11</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '4' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">STB 15</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '10' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">STB 4</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '11' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">STB 8</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '5' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">STB 12</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 2  and slot_id == '6' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">STB 16</a></button>
-                        </td>
-                    </tr>
-                </table>
-
-                <table class="table">
-                    <tr><button type="button" class="btn btn-secondary{% if rack_id == 26  and slot_id == '0' %} active{% endif %} modal Btns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26')}}">HS17</a></button></tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary{% if rack_id == 26 and slot_id == '1' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='1')}}">Client 1</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='2')}}">Client 2</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='4')}}">Client 4</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='5')}}">Client 5</a></button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='3')}}">Client 3</a></button>
-                        </td>
-                        <td>
-                            <a href="#">Empty</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='6')}}">Client 6</a></button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='7')}}">Client 7</a></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <button type="button" class="btn btn-secondary{% if rack_id == 26  and slot_id == '16' %} active{% endif %} modalBtns"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='26', slot_id='16')}}">Dev Box</a></button>
-                    </tr>
-                </table>
+               
 
             </div> <!-- this closes the left half 'col-sm-6' div -->
             <div class ='col-sm-6'>
-                 <div class='button-container'>
-                    <a href="{{url_for('controller_app_example', modalMode='false', button_set='main', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{navColor}}"> Navigation</a>
-                    <a href= "{{url_for('controller_app_example', modalMode='false', button_set='letters', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{letterColor}}">Letters</a>
-                    <a href= "{{url_for('controller_app_example', modalMode='false', button_set='numbers', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{ numberColor }}">Numbers</a>
-                    <div class="row">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="{{url_for('controller_app_example', modalMode='false', button_set='main', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{navColor}}"> Navigation</a>
+                        </td>
+                        <td>
+                            <a href= "{{url_for('controller_app_example', modalMode='false', button_set='letters', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{letterColor}}">Letters</a>
+                        </td>
+                        <td>
+                            <a href= "{{url_for('controller_app_example', modalMode='false', button_set='numbers', quad=quad, rack_id=rack_id, slot_id=slot_id)}}" class="btn {{ numberColor }}">Numbers</a>
+                        </td>
+                    </tr>
+                </table>
 
-                        <h4 id="chtune-title">Channel Tune:</h4>
-                        <form action="#" method = 'post'>
-                            <fieldset>
-                                <input type="radio" name="name" value="111"> 111
-                                <input type="radio" name="name" value="201"> 201
-                                <input type="radio" name="name" value="205"> 205
-                                <input type="radio" name="name" value="206"> 206
-                                <input type="radio" name="name" value="361"> 361
-                                <input type="radio" name="name" value="362"> 362
-                                <input type="radio" name="name" value="391"> 391
-                                <input type="radio" name="name" value="500"> 500
-                                <input type="radio" name="name" value="800"> 800
-                                <input type="radio" name="name" value="9650"> 9650
-                                <input type='submit' value='send' class="create-button">
-                            </fieldset>
-                        </form>
+                 <div class='button-container'>
+                        <div class="row">
+
+                       
                     </div>
                     <div class="row">
                         <form action="#" method = 'post'>
@@ -281,6 +349,25 @@
                     </div>
                     <div class='row no-gutters main-buttons' style="display:{{navigationz}};">
                     <table class="table">
+                        <tr>
+                            <h4 id="chtune-title">Channel Tune:</h4>
+                                <form action="#" method = 'post'>
+                                    <fieldset>
+                                        <input type="radio" name="name" value="111"> 111
+                                        <input type="radio" name="name" value="201"> 201
+                                        <input type="radio" name="name" value="205"> 205
+                                        <input type="radio" name="name" value="206"> 206
+                                        <input type="radio" name="name" value="361"> 361
+                                        <input type="radio" name="name" value="362"> 362
+                                        <input type="radio" name="name" value="391"> 391
+                                        <input type="radio" name="name" value="500"> 500
+                                        <input type="radio" name="name" value="800"> 800
+                                        <input type="radio" name="name" value="9650"> 9650
+                                        <input type='submit' value='send' class="create-button">
+                                    </fieldset>
+                                </form>
+                        </tr>    
+
                         <tr>
                             <td>
                                 <form action="#" method = 'post' class="create-button">
@@ -761,14 +848,6 @@
                                     </form>
                                 </div>
                             </div>
-                             <form action="#" method = 'post'>
-                                <fieldset>
-                                    <input type="radio" name="keyword" value="widgettestmon"> widgettestmon
-                                    <input type="radio" name="keyword" value="widgetsoff"> widgetsoff
-                                    <input type="radio" name="keyword" value="widgetcontroller_app_exampleon"> widgetcontroller_app_exampleon
-                                    <input type="radio" name="keyword" value="showswmodules"> showswmodules
-                                    <input type='submit' value='submit'>
-                                </fieldset>
                         </div>
                   <!-- End of Alphabet Table -->
 
