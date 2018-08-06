@@ -347,6 +347,7 @@ strong{
 
 .controller-main-content{
   position: fixed;
+  top: 65px; /*push content down below 50px header */
   width: 100%;
   color: white;
   z-index: 1;
@@ -490,7 +491,7 @@ footer{
 
 
 button {
-  animation: bounce .5s 3 alternate;
+ /*animation: bounce .5s 3 alternate;*/
 }
 
 .btn-override{

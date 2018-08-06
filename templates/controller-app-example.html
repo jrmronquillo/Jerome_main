@@ -55,39 +55,47 @@
             {% set numberz = 'block' %}
             {% set numberColor = 'btn-primary' %}
          {% endif %}
-         {% if modalMode == 'leftside' %}
-            {% set modal_display = 'block' %}
-         {% elif modalMode == 'rightside' %}
-            {% set modal_displayb = 'block' %}
-         {% endif %}
     </div>
     <div class="error">
         <h1 style="color:red;">{{error}}</h1>
     </div>
     <div class="controller-main-bg"></div>
+    <ul>
+        <li><a href="/projects"> << back </a></li>
+        <li><a href="#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+  Project Details
+</button></a></li>
+    </ul>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Project Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Web Development Features Highlighted:
+                    CSS,
+                    Bootstrap,
+                    Jinja2,
+                    Python<br/><hr>
+            Synopsis: This UI was created for a specific case in an environment where multiple video devices needed to be controlled, and the user needed to switch control to a different device on demand.<br/><hr>            
+            Problem: Lots of time was wasted in confusion finding which device was being controlled. <br /><hr>
+            
+            Solution: HTML user interface that puts everything in one place for the user, and visually displays what device is being controlled at any time. This saves a lot of time, because the user does not have to keep cross-referencing the actual physical device that is stored in a remote location.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="controller-main-content">
 
-        <div id="myModal1" class="modal" style="display: {{modal_display}};">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>This section of buttons are a representation of available devices that a user can control. Clicking a button here will give a user control of that particular device. Under the hood, the button click redirects to a new url that contains unique values for identifying the desired device. Those values are then parsed by a python function on the server side.</p>
-                <hr>
-                <p>These values are used later when a POST request is made to the current URL and executes the communication to an external device. The buttons on the right side are what execute a POST request in addition to passing in a value for what specific device CONTROL to send. (Click buttons on the right side for further explanation)</p>
-            </div>
-        </div>
-
-        <div id="myModal2" class="modal" style="display: {{modal_displayb}}">
-
-            <div class="modal-content">
-                <span class="close">&times;</span>
-               <p>The buttons on the right side trigger a POST request and pass in the value of the button pressed. In the post request, that value is passed to python function that directly instructs the external device to relay that CONTROL.
-               </p>
-               <hr>
-               <p>
-               In this approach, button highlights made dynamic through jinja variables. When I first began developing this, I wasn't proficient in javascript. It was only later when I gain javascript skills that I introduced javascript display this comment modal and dynamically changing the key CONTROLs on demand.
-            </div>
-        </div>
 
         <div class='row'>
             <div class='col-sm-6 stb-selection'>
@@ -99,19 +107,19 @@
                     <tr>
                         <td>
                             <div class="viewbox {% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %}">View 1 | Rack 3, Slot 8</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}">View 5 | Rack 2, Slot 14</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2 and slot_id == '14' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2 and slot_id == '14' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %}">View 9 | Rack 3, Slot 1</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %}">View 13 | Rack 2, Slot 1</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                     </tr>
 
@@ -119,19 +127,19 @@
                     <tr>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %}">View 2 | Rack 2, Slot 15</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %}">View 6 | Rack 2, Slot 16</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '2' %} selected-green{% endif %}">View 10 | Rack 2, Slot 2</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %}">View 14 | Rack 2, Slot 3</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                     </tr>
 
@@ -139,19 +147,19 @@
                     <tr>
                         <td>
                             <div class="viewbox {% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %}">View 3 | Rack 3, Slot 5</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %}"> View 7 | Rack 2, Slot 9</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 3  and slot_id == '2' %} selected-green{% endif %}">View 11 | Rack 3, Slot 2</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 3  and slot_id == '2' %} active{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %}">View 15 | Rack 2, Slot 4</div>
-                           <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                     </tr>
 
@@ -159,19 +167,19 @@
                     <tr>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %}">View 4 | Rack 2, Slot 10</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %}">View 8 | Rack 2 Slot 11</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %}">View 12 | Rack 2, Slot 5</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                         <td>
                             <div class="viewbox {% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %}">View 16 | Rack 2, Slot 6</div>
-                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
+                           <button type="button" class="btn btn-default{% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} modalBtns btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}">CONTROL</a></button><button type="button" class="btn btn-default btn-override">Fullscreen</button>
                         </td>
                     </tr>
                     <tr>
@@ -185,132 +193,115 @@
 
                 <table class="table" id="stb-table">
                     <tr>
+            
                         <th>
-                            <a href="#" class ="btn btn-seconday modalBtns"><h4>A00/A01</h4></a>
+                            <a href="{{url_for('controller_app_example', button_set=button_set, quad='noQuad', rack_id='2')}}" class="btn btn-default modalBtns"><h4>A02 - Child Devices</h4></a>
                         </th>
                         <th>
-                            <a href="{{url_for('controller_app_example', modalMode='leftside',button_set=button_set, quad='noQuad', rack_id='2')}}" class="btn btn-default modalBtns"><h4>A02</h4></a>
-                        </th>
-                        <th>
-                             <a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3')}}" class="btn btn-default modalBtns"><h4>A03</h4></a>
+                             <a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3')}}" class="btn btn-default modalBtns"><h4>A03 - Parent Devices</h4></a>
                         </th>
                          <td>
-                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='true')}}" class='btn btn-default {{allQuadButton}} modalBtns'>All Quad STB's</a></button>
+                            <button type="button"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='true')}}" class='btn btn-default {{allQuadButton}} modalBtns'>All Multiviewer STB's</a></button>
                         </td>
                     </tr>
                     <!-- row 1 -->
                     <tr>
-                        <td>
-                            <button type="button" class="btn btn-default  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 1</p></a></button>
-                        </td>
                          <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}"><p>slot 1</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}"><p>slot 2</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}"><p>slot 3</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='1')}}"><p>slot 1</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='2')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '3' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='3')}}"><p>slot 3</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}"><p>slot 1</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '1' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='1')}}"><p>slot 1</p></a></button>
                         </td>
                         <td>
-                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='1,2,8,9')}}" class="btn {{allServersButton}} modalBtns">All Servers</a></button>
+                            <button type="button"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='1,2,8,9')}}" class="btn {{allServersButton}} modalBtns">All Servers</a></button>
                         </td>
                     
                     </tr>
                     <!-- row 2 -->
 
                     <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}"><p>slot 4</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}"><p>slot 5</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}"><p>slot 6</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '4' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='4')}}"><p>slot 4</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='5')}}"><p>slot 5</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='6')}}"><p>slot 6</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '2' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
                         </td>
                          <td>
-                            <button type="button"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='1,2,3,4,5,6,9,10,11,14,15,16')}}" class="btn {{allClientsButton}} modalBtns">All Clients</a></button>
+                            <button type="button"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='1,2,3,4,5,6,9,10,11,14,15,16')}}" class="btn {{allClientsButton}} modalBtns">All Clients</a></button>
                         </td>
                     </tr>
                     <!-- row 3 -->
                      <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default {% if rack_id == 0  and slot_id == '3' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='3')}}"><p>slot 3</p></a></button>
-                        </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '7' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='7')}}"><p>slot 7</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '7' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='7')}}"><p>slot 7</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
                         </td>
                     </tr>
-                    <!-- row 5 -->
+                    <!-- row 4 -->
                      <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='8')}}"><p>slot 8</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='8')}}"><p>slot 8</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 2</p></a></button>
                         </td>
                     </tr>
 
                     <!-- row 5 -->
                      <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}"><p>slot 9</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}"><p>slot 10</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}"><p>slot 11</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '9' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='9')}}"><p>slot 9</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '10' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='10')}}"><p>slot 10</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '11' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='11')}}"><p>slot 11</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}"><p>slot 5</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '5' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='5')}}"><p>slot 5</p></a></button>
                         </td>
                     </tr>
                     <!-- row 6 -->
                      <tr>
                         <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
                         </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 12</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 12</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 6</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '6' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='2')}}"><p>slot 6</p></a></button>
                         </td>
                     </tr>
 
                     <!-- row 7 -->  
                     <tr>
                         <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
                         </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 13</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 13</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='7')}}"><p>slot 7</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='7')}}"><p>slot 7</p></a></button>
                         </td>
                     </tr>
 
                     <!-- row 8 -->
                     <tr>
                         <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
+                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
                         </td>
                         <td nowrap> 
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}  btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}"><p>slot 14</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}"><p>slot 15</p></a></button>
-                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}"><p>slot 16</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}  btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}"><p>slot 14</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}"><p>slot 15</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '16' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='16')}}"><p>slot 16</p></a></button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example', modalMode='leftside', button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}"><p>slot 8</p></a></button>
+                            <button type="button" class="btn btn-default {% if rack_id == 3  and slot_id == '8' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='3', slot_id='8')}}"><p>slot 8</p></a></button>
                         </td>
                     </tr>
 

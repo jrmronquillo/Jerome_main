@@ -45,18 +45,17 @@ def reactPlayground():
 
 @app.route('/controller-app-example', methods=['GET', 'POST'])
 @app.route('/controller-app-example/', methods=['GET', 'POST'])
-@app.route('/controller-app-example/<string:modalMode>', methods=['GET', 'POST'])
-@app.route('/controller-app-example/<string:modalMode>/<string:button_set>/', methods=['GET', 'POST'])
-@app.route('/controller/<string:modalMode>/<string:button_set>/<string:quad>/', methods=['GET', 'POST'])
-@app.route('/controller/<string:modalMode>/<string:button_set>/<string:quad>/<int:rack_id>/', methods=['GET', 'POST'])
-@app.route('/controller/<string:modalMode>/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
-@app.route('/controller/<string:modalMode>/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
-@app.route('/controller/<string:modalMode>/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
+@app.route('/controller-app-example/<string:button_set>/', methods=['GET', 'POST'])
+@app.route('/controller/<string:button_set>/<string:quad>/', methods=['GET', 'POST'])
+@app.route('/controller/<string:button_set>/<string:quad>/<int:rack_id>/', methods=['GET', 'POST'])
+@app.route('/controller/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
+@app.route('/controller/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
+@app.route('/controller/<string:button_set>/<string:quad>/<int:rack_id>/<string:slot_id>/', methods=['GET', 'POST'])
 
-def controller_app_example(modalMode='false',button_set="main", rack_id="0", slot_id="0", quad='noQuad'):
+def controller_app_example(button_set="main", rack_id="0", slot_id="0", quad='noQuad'):
     if request.method == 'POST':
         print 'post detected!!!!'
-        return render_template('controller-app-example.html', modalMode='rightside', rack_id=rack_id, slot_id=slot_id, button_set=button_set, quad=quad)
+        return render_template('controller-app-example.html', rack_id=rack_id, slot_id=slot_id, button_set=button_set, quad=quad)
 
     # if not rack_id:
     #    return "rack_id was undefined"
@@ -103,9 +102,9 @@ def controller_app_example(modalMode='false',button_set="main", rack_id="0", slo
         if quad != "true":
             print "No valid Rack Selected"
             flash("Please select Rack" )
-            return render_template('controller-app-example.html', button_set=button_set, quad=quad, modalMode=modalMode)
+            return render_template('controller-app-example.html', button_set=button_set, quad=quad)
     else:
-        return render_template('controller-app-example.html', button_set=button_set, rack_id=rack_id, slot_id=slot_id, quad=quad, modalMode=modalMode)
+        return render_template('controller-app-example.html', button_set=button_set, rack_id=rack_id, slot_id=slot_id, quad=quad)
 
     
 
