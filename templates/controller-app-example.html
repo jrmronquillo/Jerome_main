@@ -68,7 +68,7 @@
     
     <!-- Modal -->
     <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Project Details</h5>
@@ -77,15 +77,17 @@
             </button>
           </div>
           <div class="modal-body">
-            Web Development Features Highlighted:
+           <span class="bolded"> Web Development Features Highlighted:</span>
                     CSS,
                     Bootstrap,
-                    Jinja2,
-                    Python<br/><hr>
-            Synopsis: This UI was created for a specific case in an environment where multiple video devices needed to be controlled, and the user needed to switch control to a different device on demand.<br/><hr>            
-            Problem: Lots of time was wasted in confusion finding which device was being controlled. <br /><hr>
+                    Jinja2, Regular Expressions, Responsive Design<br/><hr>
+            <span class="bolded">Synopsis:</span> This UI was created 
+             for a specific case in an environment where multiple video devices needed to be controlled, and the user needed to switch control to a different device on demand.<br/><hr>            
+            <span class="bolded">Problem:</span>Confusion finding which device was being controlled at a given time and having to cross-reference the device that is located remotely. <br /><hr>
             
-            Solution: HTML user interface that puts everything in one place for the user, and visually displays what device is being controlled at any time. This saves a lot of time, because the user does not have to keep cross-referencing the actual physical device that is stored in a remote location.
+            <span class="bolded">Implementation:</span> At the time, I wasn't proficient in Javascript, so I coded around different problems probably in the least efficient way with Jinja and CSS. Other than that, each button here was meant to be wired to a python script in the backend that would translate the information, triage and send to the proper devices. (The buttons are not wired to the python scripts in this example page)<br /><hr>
+
+            <span class="bolded">Solution:</span> HTML user interface that puts everything in one place for the user, and visually displays what device is being controlled at any time. This saves a lot of time, because the user does not have to keep cross-referencing the actual physical device that is stored in a remote location.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

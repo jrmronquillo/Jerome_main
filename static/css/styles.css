@@ -28,6 +28,10 @@ img {
   filter: blur(5px) grayscale(100%);
 }
 
+.bolded{
+  font-weight: bold;
+}
+
 #social_icons{
     height: 45px;
     width: 45px;

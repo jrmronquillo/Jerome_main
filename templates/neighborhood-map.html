@@ -2,7 +2,11 @@
 <html>
    <head>
       <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="static/css/neighborhoodStyles.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -12,6 +16,13 @@
             <div id="map-error"></div>
          </div>
       </main>
+      <ul class="navbar">
+         <a href="/projects"><li class="navbar-item"> &lt;&lt; back</li></a>
+         <li class="navbar-item"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+  Project Details
+</button></li>
+      </ul>
+
       <div id="options-box" class="options-box">
          <header>
             <h1 data-bind="event: { click: toggleListView }">&#9776 Best Gelato In Rome</h1>
@@ -26,7 +37,7 @@
                   <p>No Matches</p>
                </div>
                <ul data-bind='foreach: filteredItems'>
-                  <li data-bind="text: title, event: {mouseover:
+                  <li class="locationListItems" data-bind="text: title, event: {mouseover:
                      $parent.setPlaceMouseOver, mouseout:
                      $parent.setPlaceMouseOut}, click: $parent.setPlace"></li>
                </ul>
@@ -51,6 +62,35 @@
             </div>
          </aside>
       </div>
+
+       <!-- Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Project Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           <span class="bolded"> Web Development Features Highlighted:</span>
+                    CSS,
+                    Bootstrap,
+                    KnockoutJS, Responsive Design, Google Maps API, JSON, Javascript, Jquery<br/><hr>
+            <span class="bolded">Synopsis:</span> Exercise from the Udacity program that implemented the combination of the Google Maps API, JSON data, jquery and Javascript<br/><hr>            
+            <span class="bolded">Problem:</span>Create a custom that takes location data from a JSON file and dynamically displays their information in both a list and a map. List needs to be searchable by title. <br /><hr>
+            
+            <span class="bolded">Implementation:</span> JSON data was prepopulated with location titles and their respective lat/lng coordinates. That data was then passed through the app. In the app, knockoutJS was used to dynamically show each location item and also trigger animations on the map. Lastly, the Foursquare API was introduced to add more data for the user.<br /><hr>
+
+            <span class="bolded">Solution:</span> Google map with a box that dynamically displays location data that is searchable.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
       <script src="static/lib/jquery.min.js"></script>
       <script src="static/lib/knockout-3.4.2.debug.js"></script>
       <script src="static/js/neighborhoodMap.js"></script>
