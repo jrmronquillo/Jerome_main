@@ -59,7 +59,6 @@
     <div class="error">
         <h1 style="color:red;">{{error}}</h1>
     </div>
-    <div class="controller-main-bg"></div>
     <ul>
         <li><a href="/projects"> << back </a></li>
         <li><a href="#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
@@ -266,9 +265,6 @@
                     </tr>
                     <!-- row 6 -->
                      <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
                             <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 12</p></a></button>
                         </td>
@@ -279,9 +275,6 @@
 
                     <!-- row 7 -->  
                     <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
                             <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='13')}}"><p>slot 13</p></a></button>
                         </td>
@@ -292,9 +285,6 @@
 
                     <!-- row 8 -->
                     <tr>
-                        <td>    
-                            <button type="button" class="btn btn-default btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='0', slot_id='1')}}"><p>slot 2</p></a></button>
-                        </td>
                         <td nowrap> 
                             <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '14' %} selected-green{% endif %}  btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='14')}}"><p>slot 14</p></a></button>
                             <button type="button" class="btn btn-default {% if rack_id == 2  and slot_id == '15' %} selected-green{% endif %} btn-override"><a href="{{url_for('controller_app_example',  button_set=button_set, quad='noQuad', rack_id='2', slot_id='15')}}"><p>slot 15</p></a></button>
@@ -326,23 +316,16 @@
                         </td>
                     </tr>
                 </table>
-
-                 <div class='button-container'>
-                        <div class="row">
-
-                       
-                    </div>
-                    <div class="row">
-                        <form action="#" method = 'post'>
-                            <input type ='text' size='20' name='name' id='chTextBox' pattern="[0-9]{1,4}" placeholder="Channel Number" required>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <h4 id="chtune-title" style="color: black">Channel Tune:</h4>
+                            <form action="#" method = 'post'>
+                                <input type ='text' size='20' name='name' id='chTextBox' pattern="[0-9]{1,4}" placeholder="Channel Number" required>
                             <input type='submit' value='send' class='create-button'>
-                        </form>
-                    </div>
-                    <div class='row no-gutters main-buttons' style="display:{{navigationz}};">
-                    <table class="table">
-                        <tr>
-                            <h4 id="chtune-title">Channel Tune:</h4>
-                                <form action="#" method = 'post'>
+                            </form>
+                            <span> Presets: </span>
+                            <form action="#" method = 'post'>
                                     <fieldset>
                                         <input type="radio" name="name" value="111"> 111
                                         <input type="radio" name="name" value="201"> 201
@@ -353,12 +336,15 @@
                                         <input type="radio" name="name" value="391"> 391
                                         <input type="radio" name="name" value="500"> 500
                                         <input type="radio" name="name" value="800"> 800
-                                        <input type="radio" name="name" value="9650"> 9650
                                         <input type='submit' value='send' class="create-button">
                                     </fieldset>
                                 </form>
-                        </tr>    
+                        </td>
+                    </tr>
+                </table>
 
+                <div class='row no-gutters main-buttons' style="display:{{navigationz}};">
+                        <table class="table">
                         <tr>
                             <td>
                                 <form action="#" method = 'post' class="create-button">
@@ -604,6 +590,7 @@
                     </table>
                 </div>
                         <hr>
+                        <div class='letter-container alpha-buttons' style='display: {{letterz}};'>
                         <table class="table">
                             <tr>
                                 <td>
@@ -667,178 +654,109 @@
                                     </form>
                                 </td>
                             </tr>
-                        </table>
-                        <div class='letter-container alpha-buttons' style='display: {{letterz}};'>
-                            <div class="row">
-                                <div class="col-sm-2">
+                            <tr>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='a'>
                                         <input type='submit' value='a' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='b'>
-                                        <input type='submit' value='b' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='c'>
-                                        <input type='submit' value='c' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='d'>
-                                        <input type='submit' value='d' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='e'>
-                                        <input type='submit' value='e' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='f'>
-                                        <input type='submit' value='f' class='create-button'>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='g'>
-                                        <input type='submit' value='g' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='h'>
-                                        <input type='submit' value='h' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='i'>
-                                        <input type='submit' value='i' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='j'>
-                                        <input type='submit' value='j' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='k'>
-                                        <input type='submit' value='k' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='l'>
-                                        <input type='submit' value='l' class='create-button'>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='m'>
-                                        <input type='submit' value='m' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='n'>
-                                        <input type='submit' value='n' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='o'>
-                                        <input type='submit' value='o' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='p'>
-                                        <input type='submit' value='p' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='q'>
-                                        <input type='submit' value='q' class='create-button'>
-                                    </form>
-                                </div>
-                                <div class="col-sm-2">
-                                    <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='r'>
-                                        <input type='submit' value='r' class='create-button'>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='s'>
                                         <input type='submit' value='s' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='t'>
-                                        <input type='submit' value='t' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='d'>
+                                        <input type='submit' value='d' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='u'>
-                                        <input type='submit' value='u' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='f'>
+                                        <input type='submit' value='f' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='v'>
-                                        <input type='submit' value='v' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='g'>
+                                        <input type='submit' value='g' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='w'>
-                                        <input type='submit' value='w' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='h'>
+                                        <input type='submit' value='h' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='x'>
-                                        <input type='submit' value='x' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='j'>
+                                        <input type='submit' value='j' class='create-button'>
                                     </form>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
-                                        <input type = 'hidden' name='name2' value='y'>
-                                        <input type='submit' value='y' class='create-button'>
+                                        <input type = 'hidden' name='name2' value='k'>
+                                        <input type='submit' value='k' class='create-button'>
                                     </form>
-                                </div>
-                                <div class="col-sm-2">
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='l'>
+                                        <input type='submit' value='l' class='create-button'>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <form action="#" method = 'post' class="create-button">
                                         <input type = 'hidden' name='name2' value='z'>
                                         <input type='submit' value='z' class='create-button'>
                                     </form>
-                                </div>
-                            </div>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='x'>
+                                        <input type='submit' value='x' class='create-button'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='c'>
+                                        <input type='submit' value='c' class='create-button'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='v'>
+                                        <input type='submit' value='v' class='create-button'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='b'>
+                                        <input type='submit' value='b' class='create-button'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='n'>
+                                        <input type='submit' value='n' class='create-button'>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method = 'post' class="create-button">
+                                        <input type = 'hidden' name='name2' value='m'>
+                                        <input type='submit' value='m' class='create-button'>
+                                    </form>
+                                </td>
+                            </tr>
+                            </table>
+
+                           
                         </div>
                   <!-- End of Alphabet Table -->
 

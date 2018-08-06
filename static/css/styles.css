@@ -1,3 +1,22 @@
+
+/* background css */
+
+.controller-main-bg{
+  position: fixed;
+  display: inline-block;
+  height: 100%;
+  background-image: url('destiny_2.jpg');
+  background-color: #cccccc;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  left: 0;
+  right:0;
+  z-index: 1;
+}
+
 a{
   width: 100%;
 }
@@ -66,17 +85,6 @@ img {
     filter: blur(3px);
 }
 
-.controller-main-content{
-    background-image: url("/static/desktop-1.jpg");
-    position: fixed;
-    left: 0;
-    right: 0;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
 
 /* The Modal (background) */
 .modal {
@@ -329,30 +337,6 @@ strong{
   -webkit-filter: blur(5px);
 }
 
-.controller-main-bg{
-  position: fixed;
-  display: block;
-  height: 100%;
-  background-image: url('destiny_2.jpg');
-  background-color: #cccccc;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  left: 0;
-  right:0;
-  z-index: -1;
-}
-
-.controller-main-content{
-  position: fixed;
-  top: 65px; /*push content down below 50px header */
-  width: 100%;
-  color: white;
-  z-index: 1;
-}
-
 #button1{
   color:white;
 }
@@ -530,15 +514,14 @@ button {
   height: 300px;
 }
 .controller-main-content{
-    background-image: url("/static/desktop-1.jpg");
-    position: fixed;
     left: 0;
     right: 0;
     /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    position: fixed;
+    top: 65px; /*push content down below 50px header */
+    width: 100%;
+    color: white;
+    z-index: 1;
 }
 
 /* The Modal (background) */
@@ -812,13 +795,6 @@ td{
   z-index: -1;
 }
 
-.controller-main-content{
-  position: fixed;
-  width: 100%;
-  color: white;
-  z-index: 2;
-}
-
 #button1{
   color:white;
 }
@@ -862,11 +838,11 @@ td{
 table, tr, th, td{
   border: dashed;
   border-collapse: collapse;
-  padding: 0px;
+  padding: .1rem !important;
 }
 
 
-@media (max-width: 771px) {
+@media (max-width: 1200px) {
   .stb-selection{
     display: none;
   }
