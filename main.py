@@ -24,6 +24,11 @@ def neighborhoodMap():
 
 #------neighborhood map code end
 
+#--- parallax
+@app.route('/parallax')
+def parallax():
+    return render_template('parallax.html')
+
 
 
 
@@ -31,7 +36,7 @@ def neighborhoodMap():
 
 @app.route('/catalogApp')
 def catalogApp():
-    return "PlaceHolder for Catalog App"
+    return 'catalog-app'
 
 #----end of catalogApp code
 

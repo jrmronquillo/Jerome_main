@@ -1,12 +1,87 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
 
-<h1> React Playground </h1>
+    
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        itemCount: 0,
+        visibility: false
+      };
+      this.addItem = this.addItem.bind(this)
+      this.toggleVisibility = this.toggleVisibility.bind(this)
+    }
+    
+
+    addItem() {
+      this.setState({
+        itemCount: this.state.itemCount + 1
+      });
+    }
+    
+    toggleVisibility() {
+      if(this.state.visibility){
+        this.setState({
+          visibility: false
+        })
+      } else {
+        this.setState({
+          visibility: true
+        })
+      }
+    }
 
 
-<div id="react_container"></div>
-<div id="react_container2"></div>
-<div id="react_container3"></div>
-<div id="react_container4"></div>
+    render() {
+      if(this.state.visibility){
+        return (
+          <div>
+            <button onClick={this.toggleVisibility}>Toggle</button>
+            <button onClick={this.addItem}>Add to Cart</button>
+            <h1>Current Item Count: {this.state.itemCount}</h1>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button onClick={this.toggleVisibility}>Toggle</button>
+          </div>
+        );
+      }
+    }
+  };
 
-{% endblock %}
+  
+
+  ReactDOM.render(<MyComponent />, document.getElementById('root'));
+    
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      http://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      http://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
