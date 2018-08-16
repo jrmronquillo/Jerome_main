@@ -33,7 +33,7 @@
 }
 .parallax2{
   /* The image used */
-    background-image: url('/static/Fushimi-Inari-1.jpg');
+    background-image: url('/static/desktop-2.jpg');
 
     /* Full height */
     height: 100%; 
@@ -60,6 +60,19 @@
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
+}
+
+.scroll{
+  position: absolute;
+  left: 0;
+  top: 90%;
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+}
+
+.scroll-line{
+  
 }
 
 a{
