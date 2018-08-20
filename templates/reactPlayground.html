@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World</title>
+    <title>React App</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     
@@ -12,61 +12,97 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+  class MyApp extends React.Component{
+    constructor(props){
+      super(props);
+      this.state={
+        name: 'glitch Bot'
+      }
+    }
+    render(){
+      return(
+        <div>
+          < NavBar name={this.state.name} />
+          < ToggleDisplay />
+        </div>
+      )
+    }
+  }
 
-    
-  class MyComponent extends React.Component {
-    constructor(props) {
+  class NavBar extends React.Component{
+    constructor(props){
+      super(props);
+    }
+    render(){
+      var containerStyle = { overflow: 'hidden', backgroundColor: '#333', position: 'fixed', top: 0,
+                             width: "100%"};
+      var itemStyle = { float: 'left', display: 'block', color: '#f2f2f2', textAlign: 'center', padding: '14px 16px', textDecoration: 'none', fontSize: '17px'};      
+      return(
+        <div style={containerStyle}>
+          
+          <ul>
+            <li style={itemStyle}><a href="/">Link 1</a></li>
+            <li style={itemStyle}><a>Link 2</a></li>
+            <li style={itemStyle}><a><span style={itemStyle}>Hello World {this.props.name}!</span></a></li>
+          </ul>
+        
+        </div>
+        )
+    }
+  }
+
+  class ToggleDisplay extends React.Component{
+    constructor(props){
       super(props);
       this.state = {
-        itemCount: 0,
-        visibility: false
-      };
-      this.addItem = this.addItem.bind(this)
-      this.toggleVisibility = this.toggleVisibility.bind(this)
+        display:true
+      }
+      this.toggleDisplay = this.toggleDisplay.bind(this);
     }
-    
 
-    addItem() {
+    toggleDisplay(){
       this.setState({
-        itemCount: this.state.itemCount + 1
+        display: !this.state.display
       });
     }
-    
-    toggleVisibility() {
-      if(this.state.visibility){
-        this.setState({
-          visibility: false
-        })
-      } else {
-        this.setState({
-          visibility: true
-        })
-      }
+
+    render(){
+    var toggleDisplayStyles = { marginTop: "100px"}
+    var sideMenu = {  
+      zIndex: 2,
+      position: "absolute",
+      top: 130,
+      border: "red solid",
+      backgroundColor: "white",
+      bottom: 0,
+      transition: "transform .3s ease-out",
+      WebkitTransition: "-webkit-transform .3s ease-out",
+      willChange: "transform",
+      overflowY: "auto"}
+    var overlay = {
+      zIndex: 1,
+      position: "absolute",
+      top: 0,
+      width: "100%",
+      bottom: 0,
+      backgroundColor: "rgba(0,0,0,0.5)"
     }
+      return(
+        <div style={toggleDisplayStyles}>
+          <button onClick={this.toggleDisplay}>Toggle Display </button>
+          {this.state.display && <div style={sideMenu}><button onClick={this.toggleDisplay}>Close </button><h1>Displayed!</h1></div>}
+          {this.state.display && <div style={overlay}></div>}
+        </div>
+        );
+      }
+  }
+  
 
 
-    render() {
-      if(this.state.visibility){
-        return (
-          <div>
-            <button onClick={this.toggleVisibility}>Toggle</button>
-            <button onClick={this.addItem}>Add to Cart</button>
-            <h1>Current Item Count: {this.state.itemCount}</h1>
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <button onClick={this.toggleVisibility}>Toggle</button>
-          </div>
-        );
-      }
-    }
-  };
 
   
 
-  ReactDOM.render(<MyComponent />, document.getElementById('root'));
+  ReactDOM.render(<MyApp />, document.getElementById('root'));
     
 
     </script>
