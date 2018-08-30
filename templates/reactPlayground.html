@@ -8,23 +8,104 @@
     
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      body, html, #root{
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
+  
+  const styleTest = {
+    transition: 'all 1s ease-out'
+  };
+
+  const sideMenu = {
+        backgroundColor: "#FFF",
+        width: "40%",
+        height: "100%",
+        position: "fixed",
+        top:"0",
+        left:"0",
+        zIndex: "200",
+      }
+
   class MyApp extends React.Component{
     constructor(props){
       super(props);
       this.state={
-        name: 'glitch Bot'
+        name: 'glitch Bot',
+        sideMenuOpen: false
       }
+      this.handleToggle = this.handleToggle.bind(this);
+      this.backdropClickHandler = this.backdropClickHandler.bind(this);
     }
+
+    handleToggle(){
+      this.setState({
+        sideMenuOpen: !this.state.sideMenuOpen
+      })
+    }
+
+    backdropClickHandler(){
+      this.setState({
+        sideMenuOpen: false
+      })
+    }
+    
+
     render(){
+      var container = {height: "100vh", width: "100vw", left: 0, top: 0}
+      var section1Styles = { /* The image used */
+                    backgroundImage: "url('https://placeimg.com/640/480/any/grayscale')",
+                    backgroundColor: "white",
+
+                    /* Full height */
+                    height: "100%", 
+
+                    /* Create the parallax scrolling effect */
+                    backgroundAttachment: "fixed",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover"
+      }
+
+      var section2Styles = { /* The image used */
+                    backgroundImage: "url('https://placeimg.com/640/480/any')",
+                    backgroundColor: "white",
+
+                    /* Full height */
+                    height: "100%", 
+
+                    /* Create the parallax scrolling effect */
+                    backgroundAttachment: "fixed",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover"
+      }
+
+      var ptext = {position: "absolute", top:"50%", left:"30%", textAlign: "center", color: "#000", fontSize: "27px", letterSpacing: "8px", textTransform: "uppercase"}
+      var border = { backgroundColor: "#FFF", color: "#111", padding: "20px", zIndex: "50"}
+      var overlay = { height: "100px", backgroundColor: "white", fontSize: "36px"}
+      
       return(
-        <div>
-          < NavBar name={this.state.name} />
-          < ToggleDisplay />
-        </div>
+          <div style={container}>
+            
+            <div style={section1Styles}>
+              < ToggleMenu handleToggle={this.handleToggle} />
+              {this.state.sideMenuOpen && < SideMenu backdropClickHandler={this.backdropClickHandler} />}
+              {this.state.sideMenuOpen && < BackDrop backdropClickHandler={this.backdropClickHandler} /> }
+              <div style={ptext}>
+
+                <span style={border}> Lorem to the Ipmsum </span>
+              </div>
+            </div>
+            <div style={overlay}>Lorem Ipsum Lorem Ipsum!</div>
+            <div style={section2Styles}></div>
+            <div style={section1Styles}></div>
+          </div>
       )
     }
   }
@@ -51,51 +132,160 @@
     }
   }
 
-  class ToggleDisplay extends React.Component{
+  class BackDrop extends React.Component{
     constructor(props){
       super(props);
-      this.state = {
-        display:true
-      }
-      this.toggleDisplay = this.toggleDisplay.bind(this);
     }
+    
+    render(){
+      var backDropStyle  ={width: "100%", height: "100%", position: "fixed", top: 0, left: 0, backgroundColor: "rgba(0,0,0,0.8)", zIndex: "100"}
+      return(
+        <div style={backDropStyle} onClick={this.props.backdropClickHandler}>
+        
+        </div>
+        );
+    }
+  }
 
-    toggleDisplay(){
-      this.setState({
-        display: !this.state.display
-      });
+  class SideMenu extends React.Component{
+    constructor(props){
+      super(props);
+    }
+    render(){
+      var xbar ={ 
+        width: "35px",
+        height: "5px",
+        backgroundColor: "#333",
+        margin: "6px 0",
+        transition: "opacity 0.4s",
+        transform: "rotate(-45deg) translate(-6px, 8px)"
+      }
+
+      var xbar2 = {
+        width: "35px",
+        height: "5px",
+        backgroundColor: "#333",
+        margin: "6px 0",
+        transition: "0.4s",
+        transform: "rotate(45deg) translate(0px, 0px)"
+      }
+
+      var open = {
+        backgroundColor: "#FFF",
+        width: "40%",
+        height: "100%",
+        position: "fixed",
+        top:"0",
+        zIndex: "200",
+        transform: "translateX(0)"
+      }
+
+      var menuStyle;
+      if(this.props.show){
+        menuStyle=open
+        console.log(menuStyle);
+      }
+      var listStyle ={ textAlign: "center", listStyle: "none", display: "flex", flexDirection: "column", justifyContent: "center" }
+      return(
+          <div style={sideMenu}>
+            <div id="closeX" onClick={this.props.backdropClickHandler}>
+              <div style={xbar}></div>
+              <div style={xbar2}></div>
+            </div>
+            <ul style={listStyle}>
+              <li><a href="#">Lorem 1</a></li>
+              <li><a href="#">Lorem 2</a></li>
+            </ul>
+          </div>
+      )
+    }
+  }
+
+  class ToggleMenu extends React.Component{
+    constructor(props){
+      super(props);
     }
 
     render(){
-    var toggleDisplayStyles = { marginTop: "100px"}
-    var sideMenu = {  
-      zIndex: 2,
-      position: "absolute",
-      top: 130,
-      border: "red solid",
-      backgroundColor: "white",
-      bottom: 0,
-      transition: "transform .3s ease-out",
-      WebkitTransition: "-webkit-transform .3s ease-out",
-      willChange: "transform",
-      overflowY: "auto"}
-    var overlay = {
-      zIndex: 1,
-      position: "absolute",
-      top: 0,
-      width: "100%",
-      bottom: 0,
-      backgroundColor: "rgba(0,0,0,0.5)"
-    }
-      return(
-        <div style={toggleDisplayStyles}>
-          <button onClick={this.toggleDisplay}>Toggle Display </button>
-          {this.state.display && <div style={sideMenu}><button onClick={this.toggleDisplay}>Close </button><h1>Displayed!</h1></div>}
-          {this.state.display && <div style={overlay}></div>}
-        </div>
-        );
+      var iconBar = {
+        width: "35px",
+        height: "5px",
+        backgroundColor: "#FFF",
+        margin: "6px 0",
+        transition: "0.4s"
       }
+      return(
+        <div>
+           <div id='hamburger' onClick={this.props.handleToggle}>
+              <div style={iconBar}></div>
+              <div style={iconBar}></div>
+              <div style={iconBar}></div>
+            </div>
+        </div> 
+      );
+    }
   }
+
+
+  
+
+  class CheckUserAge extends React.Component {
+  constructor(props) {
+    super(props);
+    // change code below this line
+    this.state = {
+      input: '',
+      userAge: ''
+    }
+    // change code above this line
+    this.submit = this.submit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({
+      input: e.target.value,
+      userAge: ''
+    });
+  }
+  submit() {
+    this.setState({
+      userAge: this.state.input
+    });
+  }
+  render() {
+    var checkUserStyles = { }
+    const buttonOne = <button onClick={this.submit}>Submit</button>;
+    const buttonTwo = <button>You May Enter</button>;
+    const buttonThree = <button>You Shall Not Pass</button>;
+      return (
+        <div>
+          <h3>Enter Your Age to Continue</h3>
+          <input
+            style={inputStyle}
+            type="number"
+            value={this.state.input}
+            onChange={this.handleChange} /><br />
+          {
+          this.state.userAge == ''  ? buttonOne : this.state.userAge >= 18 ? buttonTwo : buttonThree
+          }
+        </div>
+      );
+    }
+  };
+
+  class Portfolio1 extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render(){
+      var portfolio1Styles = { width: "100%", height: "100px", backgroundColor: "blue"}
+      return(<div style={portfolio1Styles}></div>)
+    };
+
+  }
+
+  
   
 
 
