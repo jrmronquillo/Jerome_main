@@ -1,5 +1,7 @@
 # Jerome_main
-Portfolio Site - Collection of Work
+Portfolio Site - Collection of my work.
+Built with Flask, HTML, CSS, Jinja, Python.
+
 
 * ## Installation
 Running this code
